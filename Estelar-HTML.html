@@ -254,4 +254,187 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium consequatur
 -->
 
 <a href="google.com">relativo: Ir para o Google</a>
+<br>
 <a href="https://www.google.com">absoluto: Ir para o Google</a>
+<br>
+
+<!--
+    <table>
+
+        Prós
+        - Visualização de dados via linhas e colunas
+        - Boa acessibilidade para leitura dos dados
+
+        Contras
+        - Pouco flexível
+        - PRecisa de estilização para melhor visualização
+
+        Não usar
+        - Para cirar seu layout
+-->
+
+<caption>Pessoas por Idade</caption>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Camilo</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>Marina</td>
+            <td>22</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Total;</td>
+            <td>2 Pessoas</td>
+        </tr>
+    </tfoot>
+</table>
+
+<!--
+    2 Lojas
+        Quantos produtos foram produzido, quantos
+        vendidos e agrupado por nome do produtos
+-->
+
+<table>
+    <caption>Produzidos x Vendidos por Lojas</caption>
+
+    <colgroup>
+        <col>
+        <col span ="2" style="background-color: red;">
+        <col span ="2" style="background-color: blue;">
+    </colgroup>
+
+    <thead>
+        <tr>
+            <th rowspan="2"></th>
+            <th colspan="2" scope="colgroup">Afonso Pena</th>
+            <th colspan="2" scope="colgroup">Antônia Pereira</th>
+        </tr>
+        
+        <tr>
+            <th scope="col">Produzidos</th>
+            <th scope="col">Vendidos</th>
+            <th scope="col">Produzidos</th>
+            <th scope="col">Vendidos</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th scope="row">Vassouras</th>
+            <td>50</td>
+            <td>30</td>
+            <td>20</td>
+            <td>20</td>
+        </tr>
+
+        <tr>
+            <th scope="row">Baldes</th>
+            <td>10</td>
+            <td>10</td>
+            <td>30</td>
+            <td>25</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<!--
+    <head>
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<br>
+<!--
+    <meta>
+
+    Atributos
+    - charset
+    - name
+    - content
+-->
+<head>
+    <!-- codificação de caracteres especiais -->
+    <meta charset = "UTF-8">
+
+    <!-- portabilidade para dispositivos mobiles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<!--
+    <link> para ícones personalidados
+-->
+
+<!-- favicon básico -->
+<link rel="icon" href="diretorio do item">
+
+<!-- iPhone não-Retina, iPod Touch e dispositivos Android 2.1+: -->
+<link rel="apple-touch-icon-precomposed" href="https://developer.cdn.mozilla.net/static/img/favicon57.a2498b9a2d76.png">
+
+<!-- iPad de primeira e segunda geração: -->
+<link rel="apple-touch-icon" sizes="48x48" href="diretorio com a img 48x48">
+
+<link rel="apple-touch-icon" sizes="72x72" href="diretorio com a img 72x72">
+
+<link rel="apple-touch-icon" sizes="96x96" href="diretorio com a img 96x96">
+
+<!-- iPhone com tela retina de alta resolução: -->
+<link rel="apple-touch-icon" sizes="144x144" href="diretorio com a img 144x144">
+
+<!-- iPad de terceira geração com tela retina de alta resolução: -->
+<link rel="apple-touch-icon" sizes="192x192" href="diretorio com a img 192x192">
+
+<link rel="apple-touch-icon" sizes="256x256" href="diretorio com a img 256x256">
+
+<link rel="apple-touch-icon" sizes="384x384" href="diretorio com a img 384x384">
+
+<link rel="apple-touch-icon" sizes="512x512" href="diretorio com a img 512x512">
+
+<!--
+    <meta>
+
+    - charset
+    - viewport
+    - author
+    - description
+    - robots
+-->
+<head>
+    <!-- SEO: SEARCH ENGINE OPTIMIZATION (motoes de busca = google) -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="author" content="Camilo Prado">
+        <meta name="desccription" content="Um website para iniciantes em programação">
+        <!--<meta name="robots" content="index, follow"> Forma padrão-->    
+</head>
+
+<!--
+    <meta> redes sociais
+-->
+<head>
+    <!-- Open Graph: facebook -->
+    <meta property="og:image" content="https://cdn-images-1.medium.com/max/92/1*TkXVfLTwsHdwpUEjGzdi9w@2x.jpeg">
+    <meta property="og:description" content="Aqui vem um texto para ser mostrado ao compartilhar no facebook">
+    <meta property="og:title" content="Um site da Rocketseat">
+
+    <!-- twitter -->
+    <meta name="twitter:title" content="Rocketseat">
+</head>

@@ -69,3 +69,366 @@ ELementos HTML são caixas
     *@import
     arquivo css externo
 */
+/*
+*A Cascata (cascading)
+
+A escolha do browser de qual regra aplicar, caso haja muitas regras para o mesmo elemento.
+
+*Seu estilo é lido de cima para baixo
+É levado em consideração 3 fatores
+
+1. Origem do estilo
+2. Especificidade
+3. Importância
+
+*Origem do estilo
+inline > tag style > tag link
+
+*Especificidade
+É um cálculo matemático, onde, cada tipo de seletor e origem do estilo, possuem valores a serem considerados.
+Os mais fracos são universal selector, combinators e negation pseudo-class, com o valor de 0. Em seguida, com valor de 1, são os element type selector e pseudo-elements.
+Também temos os classes e attribute selectors, com valor de 10, ou seja, são mais fortes que os anteriores.
+O segundo mais forte, ID selector, com um valor de 100, vence todos os selectors anteriores.
+Por fim, temos o inline, com o valor 1000, quaisquer desses selectors anteriormente citado
+
+0. Universal selector, combinators e negation pseudo-class (:not())
+1. Element type selector e pseudo-elements (::before, ::after)
+10. Classes e attribute selector ([type="radio"])
+100. ID selector
+1000. Inline
+
+*A regra !important
+Cuidado, evite o uso
+Não é considerado uma boa prática
+Quebra o fluxo natural da cascata
+*/
+
+/*
+*At-rules
+Está relacionado ao comportamento do CSS
+Começa com o sinal de '@' seguido do identificador e valor
+
+*Exemplos comuns
+
+- @import * incluir um CSS externo *
+- @media * regras condicionais para dispostivos *
+- @font-face * fonte externas *
+- @keyframes * Animation *
+*/
+@import url("http//local.com/style.css");
+
+@media (min-width: 500px) {
+    /* rules here */
+}
+
+@font-face {
+    /* rules here */
+}
+
+@keyframes nameofanimation {
+    /* rules here */
+}
+
+/*
+*Shorthand
+Junção de propriedades
+Resumido
+Legível
+*/
+{
+    /* background properties */
+    background-color: #000;
+    background-image: url(images/bg.gif);
+    background-repeat: no-repeat;
+    background-position: left top;
+
+    /* background shorthand*/
+    background: #000 url(images/bg.gif) no-repeat left top;
+
+    /* font properties */
+    font-style: italic;
+    font-weight: bold;
+    font-size: .8em;
+    line-height: 1.2;
+    font-family: Arial, sans-serif;
+
+    /* font shorthand */ 
+    font: bold italic .8em/1.2 Arial, sans-serif;
+}
+/*
+*Detalhes
+Não irá considerar propriedades anteriores
+Valores não especificados irão assumir o valor padrão
+Geralemnte, a ordem descrita não importa, mas, se houver muitas propriedades com valores semelhantes, poderemos encontrar problemas
+
+*Propriedades que aceitam shorthand
+https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties
+*/
+/*
+*Funções
+Nome seguido de abre e fecha parentesis
+Recebe argumentos
+*/
+@import url("https://urlaqui.com/style.css");
+
+{
+    color: rgb(255, 0, 100);
+    width: calc(100% - 10px);
+}
+
+/*
+*Vendor Prefixes
+Permite que browsers, adicione 'features' a fim de colocar em uso alguma novidade que vemos no CSS
+*/
+p {
+    -webkit-background-clip: text; /* Chrome, Safari, iOS e Android*/
+    -moz-background-clip: text; /* Mozilla (firefox) */
+    -ms-background-clip: text; /* Internet Explorer */
+    -moz-background-clip: text; /* Opera */
+}
+/* Consultas 
+http://ireade.github.io/wich-vendor-prefix/
+http://caniuse.com
+*/
+
+/*
+*Valores e unidades de medidas
+Cada propriedade possui valores property: value
+Estudo constante a fim de entender as propriedades e seus valores
+*Na prática
+Como conhecer e estudar os valores na documentação?
+<color> <length>
+Os termos podem variar values ou data types
+Documentação MDN: https://developer.mozilla.org/en-US/
+*/
+
+/*
+*Tipos numéricos
+<integer> - número inteiro como -10 ou 223
+<number> - número decimal como -2.4, 64 ou 0.234
+<dimension> - é um <number> com uma unidade junto: 90deg, 2s, 8px
+<percentage> - representa uma fração de outro número: 50%
+*Unidades comuns
+<length> - é um dos mais usados no CSS e representa um valor de distância: px, em, vw
+<angle> - representa um ângulo: deg, rad, turn
+<time> - representa um tempo: s, ms
+<resolution> - representa resoluções para dispositivos: dpi
+*/
+
+/*
+**Distâncias absolutas <length>
+São fixas e não alteram seu valor.
+
+| Unidade  | Nome                | Equivalência         |
+|----------|---------------------|----------------------|
+| cm       | Centímetros         | 1cm = 96px/2.54      | 
+| in       | Inches (polegadas)  | 1in = 2.54cm = 96px  | 
+| px       | Pixels              | 1px = 1/96th of 1in  |
+
+*o mais comum e mais utilizado é o px
+*não é recomendado usar cm
+
+**Distâncias relativas
+São relativas a um outro valor, pode ser o elemento pai, ou root, ou o tamanho da tela.
+Benefício: Maior adaptação aos diferentes tipos de tela.
+| Unidade  | Relativo a                                    |
+|----------|-----------------------------------------------|
+| em       | Tamanho da font do elemento pai               |
+| rem      | Tamanho da font do elemento raiz (root/html)  | 
+| vw       | 1% da viewport wid                            |  
+| vh       | 1% da viewport height                         |
+Normalmente o tamanho da font padrão do navegador é de 16px e para mudar esse valor temos que fazer a alteração no root ou no elemento html.
+:root {
+	font-size: 18px;
+}
+* OU *
+html {
+	font-size: 18px;
+}
+O viewport é a parte da tela que está sendo exibida. No caso dos navegadores web, é o que é exibido na janela/tela do documento. Conteúdos que estão fora do viewport só serão exibidos quando feito um scroll da área de visualização.
+*/
+
+/*
+*Porcentagem %
+Em muitos casos é tratado da mesma maneira que as distâncias <length>
+Sempre será relativo a algum valor
+*/
+
+/*Relativo ao elemento pai*/
+
+<ul>
+	<li>One</li>
+	<li>Two</li>
+	<li>Three
+		<ul>
+			<li>Three A</li>
+			<li>Three B</li>
+			<ul>
+				<li>Three B 2</li>
+			</ul>
+		</ul>
+	</li>
+</ul>
+li {
+    font-size: 80%;
+}
+
+/*
+*Posições
+
+<position>
+
+Representa um conjunto de coordenadas 2D:
+top, right, bottom, left e center
+Usado para alguns tipos de propriedades como o background-position
+Não confundir com a propriedade 'position'
+*/
+
+/*
+*Funções
+Em programação, funções são reconhecidas por causar um reaproveitamento de código.
+Exemplos de funções do CSS:
+
+rgb()
+hsl()
+url()
+calc()
+Dentro dos parêntesis são passados argumentos
+
+Link da documentação do MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions
+*/
+
+/*
+*String e identificadores
+Strings: texto envolto em aspas
+.box::after {
+	content: "Isso é uma string"
+}
+Identificadores: podemos ter nomes de cores como red, black, gold
+*/
+
+/*
+*Box Model
+Fundamental para fazer layouts para a web
+Maior facilidade para aplicar o CSS
+* O que é?
+Uma caixa retangular 
+Essa caixa possui propriedade de uma caixa (2D)
+
+- Tamanho (largura x altura) width|height
+- Conteúdo                   content
+- Bordas                     Border
+- Preenchimento Interno      Padding
+- Espaço fora da caixa       Margin
+*Cada elemento na sua página, será considerado uma caixa.*
+*/
+
+/*
+*Box-sizing
+Como será calculado o tamanho total da caixa?
+- content-box|border-box
+*/
+div{
+    box-sizing: border-box;
+}
+
+/*
+*Display: block vs display: inline
+
+- Como as caixas se comportam em relação às outras caixas
+- Comportamento externo das caixas
+|-----------------------------------|-------------------------------|
+|           **block**               |           **inline**          |
+|-----------------------------------|-------------------------------|
+|   Ocupa toda a linha, colocando o |   Elemento ao lado do outro   |
+|    próximo elemento abaixo desse  |                               |
+|-----------------------------------|-------------------------------|
+|   Width e height são respeitados  |   Width e height não funcionam|
+|-----------------------------------|-------------------------------|
+|   Padding, margin, border irão    |   Somente valores horizontais |
+|   funcionar normalment            |   de margin, padding e border |
+|-----------------------------------|-------------------------------|
+
+Exemplos
+block: '<p> <div> <section>', todos os headings '<h1><h2>...'
+inline: '<a> <strong> <span> <em>'
+*/
+/*
+*Margin
+Margin, é o espaço (margem) entre os elementos
+Podemos dividir o margin em 4 valores:
+* margin-top | margin-right | margin-bottom | margin-left *
+
+values: <length> | <percentage> | auto
+
+Geralmente usamos uma forma abreviada (shorthand) para escrever o margin. Esse formato segue o sentido horário iniciando pelo top, seguindo para right, bottom e left.
+
+*/
+{
+margin: 12px 16px 10px 4px; /* TOP = 12px | RIGHT = 16px | BOTTOM = 10px | LEFT = 4px */
+margin: 12px 16px 0; /* TOP = 12px | RIGHT = 16px | BOTTOM = 0px | LEFT = 16px */
+margin: 8px 16px; /* TOP = 8px | RIGHT = 16px | BOTTOM = 8px | LEFT = 16px */
+margin: 8px; /* TOP = 8px | RIGHT = 8px | BOTTOM = 8px | LEFT = 8px */
+}
+/* O margin é aplicado em elementos com display block
+Cuidado com o margin collapsing que é quando o top se junta ao bottom*/
+
+/*
+*Padding
+O padding é o preenchimento interno da caixa.
+A propriedade padding pode ser escrita como nos formatos apresentados abaixo:
+padding-top | padding-right | padding-bottom | padding-left
+values: '<lenght>' | '<percentage>'
+Geralmente usamos uma forma abreviada (shorthand) para escrever o padding. Esse formato segue o sentido horário iniciando pelo top, seguindo para right, bottom e left.
+*/
+{
+padding: 12px 16px 10px 4px; /* TOP = 12px | RIGHT = 16px | BOTTOM = 10px | LEFT = 4px */
+padding: 12px 16px 0; /* TOP = 12px | RIGHT = 16px | BOTTOM = 0px | LEFT = 16px */
+padding: 8px 16px; /* TOP = 8px | RIGHT = 16px | BOTTOM = 8px | LEFT = 16px */
+padding: 8px; /* TOP = 8px | RIGHT = 8px | BOTTOM = 8px | LEFT = 8px */
+}
+/*
+O padding pode ter valores (values) de comprimento (px, em, rem) ou de porcentagem (%)
+
+O padding poderá causar diferença na largura de um elemento
+obs.: Na aula sobre box-xizing aprendemos como resolver essa diferença na largura do elemento
+
+https://app.rocketseat.com.br/node/uma-caixa-dentro-da-outra/lesson/box-sizing
+*/
+
+/*
+* Border (e o outline)
+
+As bordas da caixa
+Documentação do MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border
+values: '<border-style>' | '<border-width>' | '<border-color>'
+    style: solid | dotted | dashed | double | groove | ridge | inset | outset
+    width: '<lenght>'
+    color: '<color>'
+*/
+div {
+	/* shorthand */
+	border-top: solid 2px; /* top | right | bottom | left */
+
+	/* style */
+	border: solid;
+
+	/* width <length> | style */
+	border: 2px dotted;
+
+	/* style | color */
+	border: outset #f33;
+
+	/* width | style | color */
+	border: medium dashed green;
+
+}
+/*
+E o outline?
+O outline é muito semelhante ao border, mas difere em 4 sentidos:
+Não modifica o tamanho da caixa, pois não é parte do Box Model
+Poderá ser diferente de retangular
+Não permite ajuste individuais
+Mais usado pelo user agent para acessibilidade
+*/
+

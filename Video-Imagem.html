@@ -1,0 +1,181 @@
+<!-- Utilização apenas para estudos -->
+<!--
+
+    <video>
+        - src
+        - controls
+        - se não funcionar?
+            - fallback content
+        - source
+            - src
+            - type
+        - sobre serviços de terceiros
+-->
+<!-- Dentro do <video> pode colocar:
+    width="200"
+    height="400"
+    autoplay
+    preload="metada"
+    loop
+    muted
+    poster=""
+-->
+<video controls>
+    <source src="./assets-example/rocket.mp4" 
+    type="video/mp4">
+    <p>Este brownser não surporta video, baixe-o aqui</p>
+</video>
+
+<!--
+
+    <audio>
+        - src
+        - controls
+        - se não funcionar?
+            - fallback content
+        - source
+            - src
+            - type
+-->
+
+<audio control> 
+<!-- Dentro do <audio> pode colocar:
+    autoplay
+    muted
+    loop
+-->
+    <source src="./assets-example/viper.mp3"
+        type="audio/mp3">
+    <source src="./assets-example/viper.ogg"
+        type="audio/ogg">
+    <p>Seu navegador não suporta audio.</p>
+</audio>
+
+<!--
+    <iframe>
+        - atributos
+            - src
+            - height
+            - width
+            - title (acessibilidade)
+            - allowfullscreen
+            - frameborder
+-->
+
+<iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/sRzX-NAhSsM" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen
+    title="Video do canal Common Sense">
+</iframe>
+
+<!--
+    <img>
+
+    - src
+    - alt
+    - title
+    - width
+    - height
+    - adicionando link
+-->
+<a href="https://google.com">
+    <img 
+        src="https://source.unsplash.com/random" 
+        alt="Imagem de title"
+        title="Colocar um título na imagem"
+        width="150px"
+        height="250px"
+    >
+</a>
+
+<!--
+    Praticando
+    Coloque a imagem abaixo na sua página
+
+    https://rocketseat.com.br/icons/icons-48x48.png
+
+    Adicione um texto alternativo, caso a imagem não seja carregada.
+    Adicione um título, para quando o mouse descansar em cima da imagem, a gente possa ver o título
+    Adicione uma largura de 500px para a imagem
+    Depois, removendo a largura, adicione uma altura de 50px
+    Experimente fazer modificações
+    por fim, adicione um link para que quando a imagem for clicada, possa redirecionar para a url
+    https://rocketseat.com.br/
+-->
+<a href="https://rocketseat.com.br/">
+    <img src="https://rocketseat.com.br/icons/icon-48x48.png" alt="Icone da rocketseat" title="Icone Rocketseat" height="50">
+</a>
+
+<!--
+    background-image
+
+    - com a tag style
+    - somente para estilo
+    - não é semântico e falta significado
+-->
+<p style="background-image: url('./icon')">Imagem</p>
+
+<!--
+    Criando título visíveis para as imagens
+    <figure> e <figcaption>
+-->
+
+<div id="figure">
+    <a href="https://google.com">
+        <img src="https://source,unsplash.com/random" alt="Imagem de title" title="Colocar um texto na imagem"
+        height="250px">
+    </a>
+
+    <p>Colocar um texto na imagem</p>
+</div> <!-- não semântico -->
+
+<a href="https://google.com">
+    <figure>
+        
+        <img src="https://source,unsplash.com/random" alt="Imagem de title" title="Colocar um texto na imagem"
+            height="250px">
+        <figcaption>Colocar um texto na imagem</figcaption>
+    </figure>
+</a> <!-- Semântico -->
+
+<!--
+    SVG <svg>
+    
+    É uma marcação, estilo html, mas não é para textos, e sim para fazer imagens.
+    Possuimos elemtendo para gerar formas
+
+    Para entender melhor
+    - Imagem rasterizada (feita por pixel) x Imagem vetorizada (feita via algoritmo)
+
+    Benefícios
+    - Mais leve
+    - Mais detalhada
+    - Maior acessibilidade e SEO
+    - Pode ser editada via css ou atributos
+
+    Desvantagens
+    - Pode ser mais complicado de trabalhar
+    - Quanto mais complexa a imagem, mais trabalho para o navegador
+    - Navegadores mais antigos não possuem suporte a essa tag
+
+    para fotografias, ainda prefira usar imagens rasterizadas.
+
+    .png, .jpg, .jpeg
+-->
+
+<img src="./assets-example/ball.png" alt=""> <!-- Imagem Rasterizada -->
+
+<svg width="100" height="100"> <!-- Imagem Vetorizada -->
+    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+</svg>
+
+<svg width="300" height="200">
+    <rect width="100%" height="100%" fill="blue" />
+</svg>
+
+<img src="./assets-example/ball.svg" alt="">

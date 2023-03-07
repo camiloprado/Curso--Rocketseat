@@ -316,3 +316,483 @@
     <button type="submit">Enviar</button>
 </form>
 
+<!--
+    <input type="email" />
+
+    - Espera que o usuário digite um email
+    - Irá validar se o valor digitado é um email
+
+    # Atributos
+
+    - placeholder
+    readonly / disabled
+    - value
+
+    - required
+
+    - multiple
+        * o campo irá receber 1 ou mais emails, separado por vírgulas
+    
+    - minlength / maxlength
+        * O mínimo e/ou máximo valor que o campo irá conter
+    
+    - size
+        * Valor numérico indicando quantos caracteres esse
+    
+    - pattern
+        * Uso de expressão regular para validar o campo
+        * Exemplo: o usuário só poderá colocar email do domínio rocketseat.com.br
+            * pattern=".+@rocketseat\.com\.br"
+    
+    - list
+        * O id de uma tag <datalist> que está no mesmo documento
+        * <datalist> irá conter uma lista de valores pré definidos afim de sugerir ao usuário, quais valores estão disponíveis
+            * Os valores do <datalist> que não forem compatíveis com o campo, não serão apresentados como sugestão
+-->
+
+<form action="">
+    <input type="email"
+    placeholder="Digite seu email">
+    <button type="submit">Enviar</button>
+</form>
+
+<form action="">
+    <input type="email"
+    readonly
+    value="camilo@dominio.com">
+    <button type="submit">Enviar</button>
+</form>
+
+<form action="">
+    <input type="email"
+    required
+    value="camilo@dominio.com">
+    <button type="submit">Enviar</button>
+</form>
+
+<form action="">
+    <input type="email"
+    multiple
+    >
+    <button type="submit">Enviar</button>
+</form>
+
+<form action="">
+    <input type="email"
+        minlength="8"
+    >
+    <button type="submit">Enviar</button>
+</form>
+
+<form action="">
+    <input type="email"
+        maxlength="250"
+    >
+    <button type="submit">Enviar</button>
+</form>
+
+<form action="">
+    <input type="email"
+       size="20"
+    >
+    <button type="submit">Enviar</button>
+</form>
+
+<form action="">
+    <input type="email"
+    pattern=".+@rocketseat\.com\.br"
+    title="Somente email rocketseat.com.br serão aceitos"
+    >
+    <button type="submit">Enviar</button>
+</form>
+
+<form action="">
+    <datalist id="emailslist">
+        <option>camilo@dominio.com</option>
+    </datalist>
+    <input type="email"
+    list="emailslist"
+    >
+    <button type="submit">Enviar</button>
+</form>
+
+<!--
+    <input type="url" />
+
+    - Espera que o usuário digite uma url
+    - Irá validar se o valor digitado é uma url
+
+    # Atributos
+
+    - placeholder
+    - readonly / disabled
+    - value
+
+    - required
+    
+    - minlength / maxlength
+        * O mínimo e/ou máximo valor que o campo irá conter
+    
+    - size
+        * Valor numérico indicando quantos caracteres esse campo deveria conter, modificando o tamanho do campo para o usuário
+    
+    - pattern
+        * Uso de expressão regular para validar o campo
+        * Exemplo: o usuário só poderá colocar domínio .com.br
+            * pattern=".*\.com\.br\/.*"
+    
+    - list
+        * O id de uma tag <datalist> que está no mesmo documento
+        * <datalist> irá conter uma lista de valores pré definidos afim de sugerir ao usuário, quais valores estão disponíveis
+            * Os valores do <datalist> que não forem compatíveis com o campo, não serão apresentados como sugestão
+    
+    - spellcheck
+                * Habilitar a verificação ortográfica para este input
+-->
+
+<form action="">
+    <input type="url"
+    placeholder="http://example.com"
+    value="http://example.com"
+    readonly>
+    <button type="submit">Enviar</button>
+</form>
+
+<form action="">
+    <input type="url"
+    placeholder="http://example.com"
+    required
+    >
+    <button type="submit">Enviar</button>
+</form>
+
+<datalist id="urldata">
+    <option>http://meusite.com.br</option>
+    <option>https://meusite.com.br</option>
+</datalist>
+<form action="">
+    <input type="url"
+    placeholder="http://example.com.br"
+    pattern=".*\.com\.br.*"
+    title="Somente domínios .com.br serão aceitos"
+    required
+    list="urldata"
+    spellcheck="true"
+    >
+    <button type="submit">Enviar</button>
+</form>
+
+<!--
+    <input type="file" />
+
+    - Usuário poderá escolher 1 ou mais arquivos para enviar no fomulário
+
+    # Atributos
+
+    - value
+        - contém o arquivo a ser enviado
+    - accept
+        - descreve que tipos de arquivos serão aceitos
+        - exemplo: .doc, .docx, .pdf, .audio/*, image/png, .png
+    - files
+        - a lista de arquivo ou arquivos
+    - multiple
+        - permite o envio de múltiplos arquivos
+
+    # Envio dos arquivos
+    Para envio dos arquivos o formulário deverá utilizar o método POST e o atributo enctype como "multipart/form-data"
+-->
+
+    <input type="file"
+        accept=".doc, .js"    
+    >
+
+    <input type="file"
+     multiple
+    >
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="file">
+</form>
+
+<!--
+    <input type="color" />
+
+    - Interface para selecionar cor
+    - Color picker
+
+    # atributos
+    - value: RGB
+        - Se inválido, o preto será exibido
+    - list
+        * o id de uma tag <datalist> que está no mesmo documento
+        * <datalist> irá conter uma lista de valores pré definidos afim
+            * Os valores do <datalist> que não forem compatíveis com o ca
+-->
+
+<input type="color" value="#ff0000">
+<datalist id="colorsdata">
+    <option>#0000ff</option>
+</datalist>
+<input type="color" list="colorsdata">
+
+<!--
+    <input type="checkbox">
+
+    - Caixas que podem ser marcadas
+    - Selecionar um valor para se enviado
+    - Se não selecionado, não será enviado nenhum dado
+
+    # Atributos
+    - globais
+    - value
+        * valor que aquele campo contém
+        * se não estiver presente, o padrão é 'on'
+    - checked
+        * para deixar o campo marcado por padrão
+-->
+
+<label for="subscribe">Receber notificações</label>
+<input type="checkbox" name="subscribe" id="subscribe">
+<!-- subscribe='on'-->
+
+<label for="subscribe">Receber notificações</label>
+<input type="checkbox" name="subscribe" id="subscribe" checked>
+
+<!--
+    MARCAR MÚLTIPLOS VALORES?
+
+    - Usaremos o atributo 'name' com o mesmo nome para os diversos campos
+-->
+
+<fieldset>
+    <legend>Choose your interests</legend>
+    <div>
+        <input type="checkbox" id="coding" name="interest" value="coding">
+        <label for="coding">Coding</label>
+    </div>
+    <div>
+        <input type="checkbox" id="music" name="interest" value="music">
+        <label for="music">Music</label>
+    </div>
+</fieldset>
+
+<!--
+    <input type="hidden" id="timestamp" name="timestamp" value="1286705410">
+
+    - invisível ao usuário
+    - será enviado com o formulário
+    - não receberá foco
+    - leitores de tela não percebem esse campo
+ -->
+
+ <input type="hidden">
+
+ <input type="hidden" name="id" value="8">
+ <!-- id=8 -->
+
+ <!--
+    <input type="radio">
+
+    - Projetado para selecionar uma única opção de um grupo de opções
+
+    # Atributos Essenciais
+    - checked
+        * indica que o campo foi marcado
+    - value
+        * valor que aquele campo contém
+ -->
+
+ <fieldset>
+    <legend>Bora tomar um cafê?</legend>
+    <label for="yes">sim</label>
+    <input type="radio" id="yep" name="coffee" value="yes">
+
+    <label for="nono">não</label>
+    <input checked type="radio" id="nono" name="coffee" value="no">
+</fieldset>
+
+ <!--
+    <textarea>
+    - mais de uma linha
+    - útil para textos grandes
+
+    # Atributos
+    - id
+    - name
+    - rows e cols
+    - maxlength e minlength
+    - wrap
+    .. outros comuns aos <input>s
+        - autocomplete, autofocus, disabled, placeholder, readonly, form, required
+ -->
+<label for="message">Mensagem</label>
+<textarea id="message"></textarea>
+<textarea name="menssage"></textarea>
+<textarea cols="30" rows="10"></textarea>
+<textarea maxlength="10" minlength="4"></textarea>
+<textarea wrap="off"></textarea> <!-- Qubra de linha -->
+<textarea placeholder="Digite uma mensagem"></textarea>
+<textarea readonly>this text will not be wrapped</textarea>
+
+<!--
+    <select>
+
+    - Controle que fornece um menu de opções
+
+    <option>
+    
+    - Contém as opções a serem selecionadas
+    - Atributos necessários
+        - value
+    
+    # Atributos Únicos
+    - multiple
+        * Habilita múltiplas opções
+    - size
+        * Quando opções visíveis?
+-->
+<label for="carselect">Qual o modelo do carro?</label>
+<select name="carmodel" id="carselect">
+    <option value="">Selecione o modelo</option>
+    <option value="fiat">Uno</option>
+    <option value="adui">A3</option>
+</select>
+<!-- carmodel=audi ou carmodel=fiat -->
+
+<label for="carselect">Qual o modelo do carro?</label>
+<br>
+<select name="carmodel" id="carselect" multiple size="4">
+    <option value="">Selecione o modelo</option>
+    <option value="fiat">Uno</option>
+    <option value="audi">A3</option>
+    <option value="bmw">X6</option>
+</select>
+<!-- Seleciona mais de uma opção segurando a tecla CTRL -->
+
+<!--
+    <optgroud>
+-->
+
+<label>Plese choose one or more pets:
+    <select name="pets" multiple size="4">
+        <optgroup label="4-legged pets">
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster" disabled>Hamster</option>
+        </optgroup>
+        <optgroup label="Flying pets">
+            <option value="parrot">Parrot</option>
+            <option value="macaw">Macaw</option>
+            <option value="albatross">Albatross</option>
+        </optgroup>
+    </select>
+</label>
+<!-- pets=dog,cat,parrot -->
+
+<!--
+    <input type="search" />
+
+    - Para campos de busca
+    - É igual ao campo do tipo 'text' mas poderá ser um pouco diferente dependendo do user agent
+
+    # Atributos
+
+    - list / <datalist>
+    - pattern
+    - arial-label
+-->
+
+<datalist id="searchterms">
+    <option>Mac</option>
+    <option>Windows</option>
+    <option>Linux</option>
+</datalist>
+
+<form action="">
+    <input type="search" name="q" list="searchterms" 
+    placeholder="Digite seu termo de busca"
+    size="29"
+    aria-label="Campo de Pesquisa: Digite seu termo de busca"
+    >
+    <button>Pesquisar</button>
+</form>
+
+<form action="">
+    <label for="">Pesquisar pelo ID</label>
+    <input type="search" name="id" 
+    size="5"
+    pattern="[0-9]{2}"
+    title="DIgite o número do ID: 99"
+    >
+    <button>Pesquisar</button>
+</form>
+
+<!--
+    <input type ="number" />
+
+    - Entrada de números
+
+    # Atributos
+    - min/max
+    - step
+-->
+<form action="">
+    <input type="number" min="2" max="89">
+
+    <button>Enviar</button>
+</form>
+
+<form action="">
+    <input type="number" step="100">
+
+    <button>Enviar</button>
+</form>
+
+<datalist id="numeroslist">
+    <option>100</option>
+</datalist>
+<form action="">
+    <input type="number" list="numeroslist">
+
+    <button>Enviar</button>
+</form>
+
+<!--
+    <input type="range" />
+
+    - Controle para selecionar um valor numérico
+    - Slider ou dial control
+
+    # Atributos
+
+    - min/max
+    - step
+-->
+
+<input type="range" min="1" max="100" value="10" step="2">
+
+<!--
+    Outros campos interessantes
+    (mas que ainda não tem um ótimo suporte)
+
+    Fique de olho em https://caniuse.com
+-->
+
+<input type="date" value="yyyy-mm-dd">
+<input type="datetime-local">
+<input type="month">
+<input type="time">
+<input type="week">
+
+<!--
+    Desenhando
+    - Pensar nos requisitos
+    - Ajuda a definir as necessidades
+
+    Dicas:
+    - Simples e focado
+    - Somente dados necessários
+    - Verifique o que te agrada
+-->
+

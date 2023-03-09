@@ -257,3 +257,301 @@ Conforme o ECMAScript standerd temos 9 tipos de dados:
 ## Primitivo Estrutural / Structural Root Primitive
 
 * null
+
+-------------------------------------------------------------------------------------------------------
+
+# Variaveis
+
+- Para entender variáveis podemos pensar nelas como nomes simbólicos para algum valor, atalhos de código ou identificadores. Para criar uma variável, podemos usar uma das palavras reservadas: var, let e const, por exemplo: var clima = "quente", onde var é a palavra que simboliza a criação da variável, clima é o nome da variável, o sinal de igual denota que a variável está recebendo um valor e "quente" é a string que está sendo recebida. As variáveis declaradas com "var" e "let" podem ter seu valor mudado, já a const não.
+
+* Nomes simbólicos para receber algum valor
+* Atalhos de código
+* Identificadores
+* 3 palavras reservadas para criar uma variável
+    * var
+    * let
+    * const
+
+```js
+    <script>
+
+        // var
+        var clima = "Quente"
+        clima = "Frio"
+
+        console.log(clima)
+
+        // let
+        let clima = "Quente"
+        clima = "Frio"
+
+        console.log(clima)
+        
+        // const
+        const clima = "Quente"
+        clima = "Frio"
+
+        console.log(clima)
+        
+    </script>
+```
+
+-------------------------------------------------------------------------------------------------------
+
+# Tipos dinâmicos
+
+- O JavaScript é uma linguagem fracamente tipada e dinâmica, ou seja, ao declarar uma variável não é necessário estabelecer um tipo específico e o tipo do valor da variável pode mudar conforme o código.
+- Variáveis não precisam ter um tipo previamente definido
+- Podemos mudar o conteúdo da variável
+
+```js
+    <script>
+
+        let clima = ""
+        console.log(typeof clima)
+
+        clima = 0
+        console.log(typeof clima)
+
+        clima = true
+        console.log(typeof clima)
+
+    </script>
+```
+
+-------------------------------------------------------------------------------------------------------
+
+# Scope e var
+
+- O Scope ou Escopo determina a visibilidade de uma variável em um código, e para entender scope precisamos primeiramente entender block statement, que é o código presente dentro de chaves. O escopo do var é global, ou seja, uma variável declarada com var poderá ser usada em todo o código.
+
+* Escopo determina a visibilidade de alguma variável no JS
+
+## Block statement
+
+```js
+// vamos iniciar um bloco
+{
+    // aqui dentro é um bloco e posso colocar qualquer código
+} // aqui fechamos o bloco
+```
+
+```js
+
+{
+    let x = 0
+    console.log(x)
+}
+```
+
+O bloco, também criará um novo escopo. Chamamos de `block-scoped`
+
+### var
+```js
+// var é global e poderá funcionar fora de um escopo de bloco
+console.log('> existe x antes do bloco? ', x)
+{
+    var x = 0
+}
+
+console.log('> existe x depois do bloco? ', x)
+```
+
+# Scope let e const
+- Diferentemente de var, const e let são variáveis com escopo local, ou seja, só são visíveis no escopo onde foram criadas e em escopos interiores ao de criação. Em uma variável let, porém, pode-se alterar o valor em um escopo e o valor irá persistir no escopo de criação.
+
+## let e const
+```js
+// const e let são locais e só funcionam no escopo onde foi criada
+console.log('> existe y antes do bloco? ', y)
+{
+    let y = 0
+}
+
+console.log('> existe y depois do bloco? ', y)
+// Não irá funcionar. O jeito correto é:
+
+{
+    let y = 0
+    console.log('> existe y? ', y)
+}
+
+// outra forma
+let y = 1
+{
+    let y = 0
+    console.log('> existe y? ', y)
+}
+
+console.log('> existe y depois do bloco?', y)
+```
+
+# Nomeando variáveis
+
+- Para nomearmos variáveis corretamente e de um jeito inteligente, precisamos saber de algumas coisas, como: JavaScript é case-sensitive (sensível à letras maiúsculas e minúsculas) e aceita a cadeia de caracteres Unicode, podendo receber acentuações. Em um nome de variável em JS você pode: Iniciar com caracteres especiais, iniciar com letras e colocar acentos, lembrando sempre que letras maiúsculas e minúsculas fazem a diferença. Em contraste, você não pode: Iniciar com números e colocar espaços vazios. Idealmente você deve colocar nomes significativos, que fazem sentido na aplicação, explicando o que a variável é, usando camel case, onde a primeira palavra de uma frase é toda minúscula, e as subsequentes não se separam por espaço e tem a primeira letra maiúscula, por exemplo: oNomeDessaVariável, e usar nomes em inglês.
+
+## Para criar nomes
+
+* JS é case-sensitive (sensível ao caso)
+* JS aceita a cadeia de caracteres Unicode
+
+- Posso:
+    * Iniciar com esse caracteres especiais $ _
+    * Iniciar com letras
+    * Colocar acentos
+    * Letras maíusculas e minúsculas fazem diferença
+
+- Não posso:
+    * Iniciar com números 
+    * Colocar espaços vazios no nome
+
+- Ideal:
+    * Criar nomes que fazem sentido
+    * Qyue explique o que a variável é ou faz
+    * camelCase
+    * snake_case
+    * Escrever em inglês
+
+-------------------------------------------------------------------------------------------------------
+
+# Declaration assignment var
+- Para declarar uma variável podemos usar var, let e const, e para atribuírmos valores à essa variável utilizamos o caractere =, e para vermos o tipo dessa variável podemos utilizar a função /*console.log(typeof variavel)*/.
+
+```js
+    // Variáveis e tipos de dados
+
+    // declaração or declaration
+    var name
+
+    // assignment or atribuição de valores
+    name = "Camilo"
+
+    // que tipo de dado foi colocado na variável
+    console.log(typeof name)
+    console.log(name)
+
+```
+
+# Agrupando declarações
+- É possível agrupar diversas declarações de variáveis em JavaScript usando let, const ou var e colocando uma vírgula entre os nomes das variáveis a serem criadas, por exemplo: *let name, age, isStudent*. Para mostrar mais de uma variável no console.log também é possível usando vírgula, por exemplo: *console.log(name, age, isStudent)*.
+
+```js
+    // Variáveis e tipos de dados
+
+    // declaração or declaration
+    var name
+
+    // assignment or atribuição de valores
+    name = "Camilo"
+
+    // que tipo de dado foi colocado na variável
+    console.log(typeof name)
+    console.log(name)
+
+    // agrupamento de declarações
+    let age, isHuman
+    age = 24
+    isHuman = true
+
+    console.log(name, age, isHuman)
+
+```
+
+# Concatenando e interpolando variáveis
+- É possível concatenar strings com o operador +, por exemplo: *console.log('o ' + name + ' tem ' + age + ' anos.')* desta maneira as variáveis serão convertidas em texto e o que será mostrado será um texto com o nome e a idade que foram estabelecidas no código. Uma outra maneira de escrever um texto com variáveis é por meio da interpolação com template literals, usando crase para o texto e ${} para denotar uma variável, por exemplo *console.log(`O ${name} tem ${age} anos.`)* o resultado deste comando será o mesmo texto do anterior.
+
+```js
+    // Variáveis e tipos de dados
+
+    // declaração or declaration
+    var name
+
+    // assignment or atribuição de valores
+    name = "Camilo"
+
+    // que tipo de dado foi colocado na variável
+    console.log(typeof name)
+    console.log(name)
+
+    // agrupamento de declarações
+    let age, isHuman
+    age = 24
+    isHuman = true
+
+    // multiplos argumentos na funcao
+    //console.log(name, age, isHuman)
+
+    // escrita de texto + variáveis
+
+    // concatenando valores
+    console.log('o ' + name+ ' tem' + age + ' anos.')
+
+    // interpolando valores com template literals or template strings
+    console.log(`o ${name} tem ${age} anos`)
+
+```
+
+# Objects
+- Para criarmos um objeto utilizamos as chaves envolvendo as propriedades, que são atribuídas com dois pontos, por exemplo: *const person = { name: 'John', age: 20 }*, para acessar essas propriedades usamos o ".", por exemplo: console.log(person.name).
+
+```js
+    // Object
+    const person = {
+        name: 'John',
+        age: 30,
+        weight: 105,
+        isAdmin: true
+    }
+
+    console.log(`${person.name} tem ${person.age} anos`)
+```
+
+# Arrays
+- Para criarmos um vetor utilizamos [ ] envolvendo os valores, por exemplo: *const animals = [ "Lion", "Monkey" ]*, para acessar esses valores usamos a posição do valor no vetor, começando por 0, por exemplo: *console.log(animals[0])*. Para descobrirmos o número de posições de um vetor qualquer, podemos utilizar a propriedade length, por exemplo: *animals.length*.
+
+```js
+const animals = [
+    'Lion',
+    'Monkey',
+    {
+        name: 'Cat',
+        age: 3
+    }
+]
+
+// acessar valores dentro do Array
+console.log(animals[0])
+console.log(animals.length)
+console.log(animals[2].name)
+console.log(animals[1].name)
+```
+
+-------------------------------------------------------------------------------------------------------
+
+# Functions
+- Funções são tipos de dados estruturais, que são declarados dessa forma: *function nomeFunção() { código à cer executado }* e para executar a função, usa-se: *nomeFunção()*. Uma função é importante para o agrupamento e reutilização de código.
+
+```js
+// criar um aplicativo de frases motivacionais
+
+
+// declaration - declaração da função
+// function statement
+function createPhrases () {
+    console.log('Estudar é muito bom')
+    console.log('Paciência e persistência')
+    console.log('Revisão é mãe do aprendizado')
+}
+
+// executar a função
+// rodar, chamar, invocar
+// execute, run, call, invoke
+createPhrases()
+createPhrases()
+createPhrases()
+
+console.log('fim do programa')
+```
+
+## Argumentos e parâmetros
+- Também é possível declarar funções dentro de variáveis, desta maneira: *const variavel = function() {}*. Uma parte importante de funções são os parâmetros, que são similares variáveis que funcionam para colocar dados em funções, eles são declarados junto à declaração da função e quando a função for executada, os valores dos argumentos são colocados dentro dos parênteses.

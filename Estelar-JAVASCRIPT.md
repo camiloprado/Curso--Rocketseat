@@ -555,3 +555,351 @@ console.log('fim do programa')
 
 ## Argumentos e parâmetros
 - Também é possível declarar funções dentro de variáveis, desta maneira: *const variavel = function() {}*. Uma parte importante de funções são os parâmetros, que são similares variáveis que funcionam para colocar dados em funções, eles são declarados junto à declaração da função e quando a função for executada, os valores dos argumentos são colocados dentro dos parênteses.
+
+```js
+// fuction expression
+// function anonymous
+
+// parâmetro (parameters)
+const sum = function (number1, number2) {
+    console.log(number1 + number 2)
+}
+
+sum(2, 3) // arguments - argumentos
+```
+
+## Retornando valores dentro da função
+- Para passar valores de dentro da função para o resto do código, usa-se a palavra reservada return seguida do valor à ser retornado, parando assim a execução da função e mandando o valor para onde a função foi chamada.
+
+```js
+// fuction expression
+// function anonymous
+
+// parâmetro (parameters)
+const sum = function (number1, number2) {
+    total = number1 + number2
+    return total
+}
+
+let number1 = 34
+let number2 = 25
+
+console.log(`o numero 1 é o ${number1}`)
+console.log(`o numero 2 é o ${number2}`)
+console.log(`a soma é ${sum(number1,number2)}`)
+```
+
+## Outra maneira de entender funções
+- Uma outra forma de entender funções por meio de um exemplo de liquidificador.
+
+```js
+// Função é um liquidificador
+
+function fazerSuco(fruta1, fruta2) {
+    return fruta1+ fruta2
+}
+
+const copo = fazerSuco('banana', 'maçã')
+
+console.log(copo)
+```
+
+## Function scope
+- Parâmetros, mesmo se tiverem o mesmo nome que alguma outra variável do seu código, são apenas modificados e persistem no escopo da função.
+
+
+```js
+// function scope
+let subject
+function createThink() {
+    subject = 'study'
+    return subject
+}
+
+console.log(subject)
+console.log(creteThink())
+console.log(subject)
+```
+
+## Function Hoisting
+- O JavaScript possui function hoisting, permitindo que uma função seja declarada depois de ser utilizada, pois faz algo similar a elevar no código declarações de funções. Porém isso não acontece dentro de variáveis.
+
+
+```js
+// function hoisting
+
+sayMyName();
+
+function sayMyName() {
+    console.log('Camilo')
+}
+```
+```js
+// function hoisting
+
+sayMyName();
+
+var sayMyName = function () {
+    console.log('Camilo')
+}
+```
+
+```js
+// function hoisting
+
+sayMyName();
+
+var sayMyName = function sayMyName() {
+    console.log('Camilo')
+}
+```
+
+## Arrow function
+- Também podemos escrever funções expression de uma maneira mais compacta, desta maneira: *() => { código a ser executado }*, chamada de Arrow Function.
+
+```js
+// arrow function
+
+const sayMyName = (name) => {
+    console.log(name)
+}
+
+sayMyName('Camilo')
+```
+
+## Callback function
+- Uma callback function é uma função que está sendo passada para outra função como parâmetro.
+
+```js
+// callbakc function
+
+function sayMyName(name) {
+    console.log('antes de executar a funcao callback')
+    name()
+    console.log('depois de executar a funcao callback')
+}
+
+sayMyName(
+    () => {
+        console.log('estou em uma callback')
+    }
+)
+```
+
+## Funções construtoras
+- Funções construtoras são utilizadas para criar novos objetos e geralmente tem a sua primeira letra maiúscula, todos com as mesmas características que são criadas na função, usando a palavra reservada this para se referir ao objeto sendo criado, por exemplo:
+
+```js
+/*
+    Function() constructor
+
+    * expressão new
+    * criar um novo objeto
+    * this keyword
+*/
+
+function Person(name) {
+	this.name = name
+	this.walk() = function() {
+		return this.name + "está andando")
+	}
+}
+const mayk = new Person("Camilo")
+const joao = new Person("João")
+```
+
+-------------------------------------------------------------------------------------------------------
+
+# Manipulação de dados
+
+## Prototype
+- O JavaScript possui uma característica chamada Prototype, que é uma série de funcionalidades e atributos que já existem nativamente em diversos tipos de dados, que são lidados como objetos.
+
+```js
+/*
+    Prototype
+
+    *prototype-based language
+    * prototype chain
+    * __photo__
+*/
+```
+
+## Type conversion coersion
+- Type conversion se trata de uma conversão de tipo feita pelo dev, explicitamente, e pode ser feita de diversas maneiras, por exemplo com o método Number(), já type coersion é uma mudança de tipos feita pelo próprio JavaScript, implicitamente, por exemplo quando você tenta somar um número na forma string com um número do tipo número.
+
+```js
+/*
+    Type conversion (typecasting) vs Type coersion
+
+    * Alteração de um tipo de dado para outro tipo
+*/
+
+console.log('9' + 5) // coersion
+console.log(9 + 5)
+```
+
+## Strings em números
+- É possível transformar números em formato de string através do método Number() e números em formato number em string usando o método String().
+
+```js
+// Manipulação Strings e Números
+
+// Transformar String em Número e Número em String
+let string = '123'
+n_string = Number(string)
+console.log(n_string)
+let number = 321
+s_number = String(number)
+console.log(s_number)
+```
+
+## Contando caracteres e digitos
+- Para contar a quantidade de caracteres em uma string é possível usar o método length(), também é possível contar a quantidade de algarismos em um número transformando o número em string e usando o mesmo método.
+
+```js
+// Manipulação Strings e Números
+
+// Contar quantos caracteres tem uma plavra e quantos dígitos tem um número
+
+let word = "Paralalelepipedo"
+console.log(word.length)
+let number = 1234
+console.log(String(number).length)
+```
+
+## Casas decimais
+- Para determinar uma quantia de casas decimais de um número pode-se usar o método toFixed() colocando como argumento quantas casas decimais o número terá. Para mudar a formatação do número de separado por ponto para separado por vírgula é possível usar o método replace(".", ","). O resultado final será do tipo string, e a conversão para o tipo número não será possível por que a vírgula não é considerada parte de um número.
+
+```js
+// Manipulação Strings e Números
+
+// Transformar um número quebrado com 2 casas decimais e trocar ponto por vírgula
+
+let number = 435312345.33452345
+console.log(number.toFixed(2).replace(".", ","))
+```
+
+## Maiúsculas e minúsculas
+- Para transformar uma string em letras maiúsculas pode-se usar o método toUpperCase(), e ao contrário, também é possível usar o toLowerCase() para transformar uma string em todas letras minúsculas.
+
+```js
+// Manipulação Strings e Números
+
+// Transformar letras minúsculas em maiúsculas. Faça o contrário disso também
+
+let word = "Programar é muito bacana!"
+console.log(word.toUpperCase())
+console.log(word.toLowerCase())
+```
+
+## Separando strings
+- Para separar um texto por espaços, pode-se usar o método split(" "), que transforma o texto em um array de strings baseado no argumento, que no caso são os espaços. Para juntar esse array é possível usar o método join('"), que juntaria essas palavras sem nenhum separador, porém colocando um argumento, no caso um underscore ( join("_") ) as palavras são juntadas com o argumento de separador.
+
+```js
+// Manipulação Strings e Arrays
+
+// Separe um texto que contem espaços, em um novo array onde cada texto é uma posição do array. Depois disso, transforme o array em um texto e onde eram espaços, coloque _
+
+let phrase = "Eu quero viver o Amor!"
+let myArray = phrase.split(" ")
+console.log(myArray)
+let phraseWithUnderscore = myArray.join("_")
+console.log(phraseWithUnderscore.toLowerCase)
+```
+
+## Encontrando palavras em frases
+- Para verificar se um texto possui uma palavra específica, podemos usar o método includes(), passando como argumento a palavra a ser verificada, que retorna um valor true se encontrar a palavra, e falso se não, lembrando sempre que o método é case sensitive.
+
+```js
+// Manipulação Strings
+
+// Verificar se o texto contém a palavra Amor
+let phrase = "Eu quero viver!"
+console.log(phrase.includes("Amor"))
+let phrase = "Eu quero viver o amor!"
+console.log(phrase.includes("Amor"))
+let phrase = "Eu quero viver o Amor!"
+console.log(phrase.includes("Amor"))
+```
+
+## Criando array com construtor
+- Para criar um array com um método construtor, usa-se new Array(args), passando como argumento o tamanho deste vetor ou os valores, por exemplo: *const array = new Array("a", "b", "c").*
+
+```js
+// Manipulação Array
+
+// Criar Array com construtor
+let myArray = new Array('a', 'b', 'c')
+console.log(myArray)
+```
+
+## Elementos do Array
+- Para contar a quantidade de elementos em um array pode-se usar o método length.
+
+```js
+// Manipulação Array
+
+// Contar elementos de um array
+console.log(["a", "b", "c"])
+console.log([
+    "a",
+    {type: "array"},
+    function() {return "alo"},
+].length)
+
+console.log([
+    "a",
+    {type: "array"},
+    function() {return "alo"},
+][2])
+
+console.log([
+    "a",
+    {type: "array"},
+    function() {return "alo"},
+][1].type)
+
+console.log(["a", "b", "c"].length)
+```
+
+## Strings para arrays
+- Para transformar uma string em um array, pode-se usar o objeto Array com o método from(), passando como argumento a string a ser transformada em array. Por exemplo *console.log(Array.from("developer"))*.
+
+```js
+// Manipulação Array
+
+// Transformar uma cadeia de caracteres em elementos de um array
+
+let word = "manipulação"
+console.log(Array.from(word))
+```
+
+## Manipulando arrays
+- Existem várias maneiras de manipular arrays, como: o método push(), que adiciona um elemento no final do array, o método unshift(), que adiciona um elemento no começo do array, o método pop(), que retira um elemento do final do array, o método shift(), que retira um elemento do começo do array, o método slice(), que recebe como argumentos a posição de início e a posição do fim da parte que você quer selecionar, e retorna os valores destas posições, o método splice(), que recebe como argumentos a posição de início e a quantidade de elementos que você quer remover e o método indexOff(), que encontra o index do valor que recebe como argumento em um array.
+
+```js
+// Manipulando Array
+
+let techs = ["html", "css", "js"]
+
+// adicionar um item no fim
+techs.push("nodejs")
+// adicionar um no começo
+techs.unshift("sql")
+// remover do fim
+techs.pop()
+// remover do começo
+techs.shift()
+// pegar somente alguns elementos do array
+console.log(techs.slice(1, 3))
+// remover 1 ou mais itens em qualquer posição do array
+techs.splice(1, 1)
+// encontrar a posição de um elemento no array
+let index = techs.indexOf('css')
+techs.splite(index, 1)
+
+console.log(techs)
+```
+
+-------------------------------------------------------------------------------------------------------
